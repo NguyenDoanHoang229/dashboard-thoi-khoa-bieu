@@ -3,27 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard Chi Tiêu</title>
+    <title>Quản Lý Thời Khóa Biểu</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
     <div class="container">
-        <h1>📊 Dashboard Chi Tiêu</h1>
+        <h1>📚 Quản Lý Thời Khóa Biểu</h1>
         
-        <div class="form-container">
-            <h2>Nhập Chi Tiêu</h2>
-            <form id="expenseForm">
-                <input type="text" id="category" placeholder="Danh mục chi tiêu" required>
-                <input type="number" id="amount" placeholder="Số tiền" required>
-                <button type="submit">Thêm Chi Tiêu</button>
+        <div class="column left">
+            <h2>Thêm Môn Học</h2>
+            <form id="subjectForm">
+                <input type="text" id="subjectName" placeholder="VD: Toán cao cấp" required>
+                <select id="dayOfWeek" required>
+                    <option value="">Chọn thứ</option>
+                    <option value="2">Thứ 2</option>
+                    <option value="3">Thứ 3</option>
+                    <option value="4">Thứ 4</option>
+                    <option value="5">Thứ 5</option>
+                    <option value="6">Thứ 6</option>
+                    <option value="7">Thứ 7</option>
+                </select>
+                <input type="number" id="startPeriod" min="1" max="10" placeholder="Tiết bắt đầu" required>
+                <input type="number" id="endPeriod" min="1" placeholder="Tiết kết thúc" required>
+                <input type="text" id="classroom" placeholder="Phòng học">
+                <input type="text" id="teacher" placeholder="Giáo viên">
+                <input type="color" id="colorPicker" required>
+                <button type="submit">➕ Thêm môn</button>
+                <button type="button" id="deleteSubject">🗑 Xóa môn</button>
+                <button type="button" id="editSubject">✏ Sửa môn</button>
             </form>
         </div>
 
-        <div class="charts-container">
-            <canvas id="pieChart"></canvas>
-            <canvas id="barChart"></canvas>
+        <div class="column middle">
+            <h2>Bảng Thời Khóa Biểu</h2>
+            <div class="grid" id="scheduleGrid">
+            </div>
+        </div>
+
+        <div class="column right">
+            <h2>Danh Sách Hôm Nay</h2>
+            <div id="todaySubjects">
+                <!-- Danh sách môn học hôm nay sẽ được thêm vào đây bằng JavaScript -->
+            </div>
+            <div id="summary">
+                <!-- Hiển thị tổng số môn và tiết -->
+            </div>
         </div>
     </div>
 
